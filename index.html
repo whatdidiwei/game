@@ -78,6 +78,21 @@
 		outline: none;
 		cursor: pointer;
 	}
+
+	#music_btn{
+		width: 123px;
+		height: 115px;
+		background-image: url('img/music.png');
+		background-size:100% 100%;
+		background-position: -125px -3px;
+		position: absolute;
+		top:790px;
+		left:50px;
+		z-index: 4;
+		border:none;
+		outline: none;
+		cursor: pointer;
+	}
 </style>
 </head>
 
@@ -102,6 +117,41 @@
 </div>
 <div id="start_btn">
 </div>
+<audio id="music" src="http://dl.stream.qqmusic.qq.com/C4000026WmbV1p9fIo.m4a?guid=5015088730&vkey=D3370063F6C47BCEBC1A3D7444FCA90E345FCAF116243DE63E484B523BCE16F39DAB853193663AB08BA87A1F98015C3E0EAC144BB997930E&uin=&fromtag=120032"></audio>
+
+<div id="music_btn" onclick="toggleMusic()"></div>
+<!-- <a href="#" class="btn js-toggle-music" onclick="toggleMusic()">打开音乐</a> -->
+<script>
+	// Audio
+	var musicPlaying = false;
+	var musicButton = document.querySelector('.js-toggle-music')
+	var music = document.querySelector('#music');
+	
+function toggleMusic() {
+	musicPlaying = !musicPlaying;
+	if (musicPlaying) {
+		music.play();  
+		musicButton.textContent = "Stop Music";
+	} else {
+		music.pause();
+		music.currentTime = 0;
+		musicButton.textContent = "Play Music";
+	}
+}
+
+
+function play() {
+	playing = true;
+	setState();
+	renderScore();
+	toggleScreen(gameScreen);
+	peep();
+	peep();
+	peep();
+	peep();
+	startTimer();
+}
+</script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
 	var toys = new Array();//娃娃数组
